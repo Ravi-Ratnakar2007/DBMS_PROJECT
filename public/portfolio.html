@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My Portfolio - Stock Exchange</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="nav">
+    <b>Stock Exchange</b>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="portfolio.html">My Portfolio</a>
+    <a href="wallet.html">My Wallet</a>
+    <span class="space"></span>
+    <span id="who"></span>
+    <span id="balance"></span>
+    <button class="small" onclick="logout()">Logout</button>
+  </div>
+
+  <div class="container">
+
+    <!-- summary numbers -->
+    <div class="cards">
+      <div class="card"><div>Cash Balance</div><div class="number" id="cashBalance">-</div></div>
+      <div class="card"><div>Invested Amount</div><div class="number" id="investedAmount">-</div></div>
+      <div class="card"><div>Current Stock Value</div><div class="number" id="currentAmount">-</div></div>
+      <div class="card"><div>Total Profit / Loss</div><div class="number" id="totalPL">-</div></div>
+      <div class="card"><div>Total Net Worth</div><div class="number good" id="netWorth">-</div></div>
+    </div>
+
+    <div id="portfolioMessage" class="msg"></div>
+
+    <div class="box">
+      <h2>My Holdings</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Symbol</th><th>Company</th><th>Quantity</th>
+            <th>Avg Buy Price</th><th>Current Price</th><th>Value</th><th>Profit / Loss</th><th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="holdingsTable"></tbody>
+      </table>
+    </div>
+
+    <div class="box">
+      <h2>My Orders (last 30)</h2>
+      <table>
+        <thead>
+          <tr><th>Order</th><th>Symbol</th><th>Type</th><th>Quantity</th><th>Price</th><th>Status</th><th>Time</th></tr>
+        </thead>
+        <tbody id="ordersTable"></tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/portfolio.js"></script>
+</body>
+</html>

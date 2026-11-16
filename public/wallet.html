@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My Wallet - Stock Exchange</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="nav">
+    <b>Stock Exchange</b>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="portfolio.html">My Portfolio</a>
+    <a href="wallet.html">My Wallet</a>
+    <span class="space"></span>
+    <span id="who"></span>
+    <span id="balance"></span>
+    <button class="small" onclick="logout()">Logout</button>
+  </div>
+
+  <div class="container">
+
+    <!-- summary cards -->
+    <div class="cards">
+      <div class="card"><div>Available Cash</div><div class="number" id="walletBalance">-</div></div>
+      <div class="card"><div>Total Deposited</div><div class="number good" id="totalDeposited">-</div></div>
+      <div class="card"><div>Total Withdrawn</div><div class="number bad" id="totalWithdrawn">-</div></div>
+      <div class="card"><div>Net Stock Trading</div><div class="number" id="netStockTrades">-</div></div>
+      <div class="card"><div>Total Net Worth</div><div class="number good" id="totalNetWorth">-</div></div>
+    </div>
+
+    
+
+    <!-- deposit / withdraw box -->
+    <div class="box">
+      <h2>Add or Withdraw Money</h2>
+      <div class="form-row">
+        <input type="number" id="moneyAmount" min="1" placeholder="Enter amount in ₹ (e.g. 5000)" style="flex: 1; min-width: 200px;">
+        <button class="green" onclick="depositMoney()">+ Deposit Money</button>
+        <button class="red" onclick="withdrawMoney()">- Withdraw Money</button>
+      </div>
+      <div id="walletMessage" class="msg"></div>
+    </div>
+
+    <!-- cashflow transactions box -->
+    <div class="box">
+      <h2>Cashflow Transactions</h2>
+      <p style="color: #666; font-size: 13px; margin-top: -6px;">
+        Complete statement of all money entering and leaving your account (deposits, withdrawals, and stock trades).
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Ref ID</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Direction</th>
+            <th>Amount</th>
+            <th>Date & Time</th>
+          </tr>
+        </thead>
+        <tbody id="cashflowTable"></tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/wallet.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Stock Exchange</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="login-box">
+    <h1>Stock Exchange</h1>
+
+    <!-- login form -->
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+
+    <div id="message" class="msg"></div>
+
+    <hr style="margin: 18px 0; border: none; border-top: 1px solid #ddd;">
+
+    <!-- register form (hidden by default) -->
+    <p style="text-align:center; margin-bottom:8px;">
+      <a href="#" id="toggleRegister" style="color:#1e3a8a;">Don't have an account? Register</a>
+    </p>
+    <form id="registerForm" style="display:none;">
+      <input type="text" id="regName" placeholder="Full Name" required>
+      <input type="email" id="regEmail" placeholder="Email" required>
+      <input type="password" id="regPassword" placeholder="Password (min 6 chars)" required minlength="6">
+      <input type="tel" id="regPhone" placeholder="Phone (optional)">
+      <button type="submit" style="background:#16a34a;">Register</button>
+    </form>
+    <div id="regMessage" class="msg"></div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

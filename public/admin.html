@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Stock Exchange</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="nav">
+    <b>Stock Exchange - Admin</b>
+    <span class="space"></span>
+    <span id="who"></span>
+    <button class="small" onclick="logout()">Logout</button>
+  </div>
+
+  <div class="container">
+
+    <!-- numbers -->
+    <div class="cards">
+      <div class="card"><div>Investors</div><div class="number" id="statInvestors">-</div></div>
+      <div class="card"><div>Transactions</div><div class="number" id="statTransactions">-</div></div>
+      <div class="card"><div>Money Traded</div><div class="number" id="statMoney">-</div></div>
+      <div class="card"><div>Flagged Transactions</div><div class="number flagged-color" id="statFlagged">-</div></div>
+      <div class="card"><div>Most Traded Stock</div><div class="number" id="statTop">-</div></div>
+    </div>
+
+    <div id="adminMessage" class="msg"></div>
+
+    <!-- transactions -->
+    <div class="box">
+      <h2>Transactions</h2>
+      <p style="color: #666; font-size: 13px; margin-top: -6px;">
+        Monitor executed transactions. Flag or unflag suspicious trades. Search by Transaction ID, symbol, or investor name.
+      </p>
+      <div class="form-row">
+        <input type="text" id="txnSearch" placeholder="Search by Transaction ID (e.g. 15), symbol, or investor..." style="flex: 1; min-width: 260px;">
+        <select id="txnStatusFilter">
+          <option value="">All Transactions</option>
+          <option value="FLAGGED">Flagged Only</option>
+          <option value="NORMAL">Normal Only</option>
+        </select>
+        <button onclick="loadTransactions()">Search</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Txn ID</th>
+            <th>Order ID</th>
+            <th>Investor</th>
+            <th>Symbol</th>
+            <th>Type</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>Total Amount</th>
+            <th>Status</th>
+            <th>Time</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="transactionsTable"></tbody>
+      </table>
+    </div>
+
+    <div class="row">
+
+      <!-- stock prices -->
+      <div class="col">
+        <div class="box">
+          <h2>Change Stock Price</h2>
+          <table>
+            <thead><tr><th>Symbol</th><th>Company</th><th>Price</th><th></th></tr></thead>
+            <tbody id="stocksTable"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- add stock -->
+      <div class="col">
+        <div class="box">
+          <h2>Add New Company + Stock</h2>
+          <div class="form-row"><input id="newName" placeholder="Company name"></div>
+          <div class="form-row"><input id="newSector" placeholder="Sector"> <input id="newHq" placeholder="Headquarters"></div>
+          <div class="form-row"><input id="newSymbol" placeholder="Symbol (e.g. ABCD)" maxlength="10"></div>
+          <div class="form-row"><input id="newPrice" type="number" placeholder="Price"> <input id="newShares" type="number" placeholder="Total shares"></div>
+          <button onclick="addStock()">Add Stock</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- investors -->
+    <div class="box">
+      <h2>Investors</h2>
+      <table>
+        <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Balance</th><th>Actions</th></tr></thead>
+        <tbody id="investorsTable"></tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

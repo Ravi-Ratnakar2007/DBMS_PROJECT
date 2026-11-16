@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Stock Exchange</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="nav">
+    <b>Stock Exchange</b>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="portfolio.html">My Portfolio</a>
+    <a href="wallet.html">My Wallet</a>
+    <span class="space"></span>
+    <span id="who"></span>
+    <span id="balance"></span>
+    <button class="small" onclick="logout()">Logout</button>
+  </div>
+
+  <div class="container">
+
+    <!-- summary cards: cash, invested, current, net worth -->
+    <div class="cards">
+      <div class="card"><div>Available Cash</div><div class="number" id="cashBalance">-</div></div>
+      <div class="card"><div>Invested Amount</div><div class="number" id="investedAmount">-</div></div>
+      <div class="card"><div>Current Stock Value</div><div class="number" id="currentAmount">-</div></div>
+      <div class="card"><div>Total Net Worth</div><div class="number good" id="netWorth">-</div></div>
+    </div>
+
+    <div class="row">
+
+      <!-- left side: search + list of stocks -->
+      <div class="col">
+        <div class="box">
+          <h2>Stocks</h2>
+          <input type="text" id="search" placeholder="Search company, symbol or sector..." style="width: 100%; box-sizing: border-box; margin-bottom: 10px;">
+          <table>
+            <thead>
+              <tr><th>Symbol</th><th>Company</th><th>Sector</th><th>Price</th></tr>
+            </thead>
+            <tbody id="stockTable"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- right side: graph + buy/sell -->
+      <div class="col">
+        <div class="box">
+          <h2 id="chartTitle">Click a stock to see its graph</h2>
+          <canvas id="priceChart" height="200"></canvas>
+        </div>
+
+        <div class="box">
+          <h2>Buy / Sell</h2>
+          <p id="selectedInfo">No stock selected</p>
+          <div class="form-row">
+            <input type="number" id="quantity" min="1" value="1" placeholder="Quantity">
+            <button class="green" onclick="trade('BUY')">Buy</button>
+            <button class="red" onclick="trade('SELL')">Sell</button>
+          </div>
+          <div id="tradeMessage" class="msg"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Chart.js draws the graph -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
